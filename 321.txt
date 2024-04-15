@@ -1,0 +1,19 @@
+@echo off
+setlocal
+
+rem Получаем имя пользователя
+for /f "tokens=2 delims==" %%G in ('wmic path win32_computersystem get username /value') do set "username=%%G"
+
+rem Получаем рабочий каталог пользователя
+set "userdir=%cd%"
+
+rem Создаем файл на диске C
+set "outputFile=C:\userinfo.txt"
+
+rem Записываем информацию в файл
+echo User Name: %username% > "%outputFile%"
+echo User Directory: %userdir% >> "%outputFile%"
+
+echo Файл создан: %outputFile%
+
+endlocal
